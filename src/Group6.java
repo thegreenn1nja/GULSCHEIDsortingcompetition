@@ -120,7 +120,9 @@ public class Group6 {
         }
 			*/
 	}
-	 /* private static int partition(TestInteger[] arr, int low, int high) {
+
+	/*
+	 private static int partition(TestInteger[] arr, int low, int high) {
         TestInteger pivot = arr[high];
         int i = low - 1;
         for (int j = low; j < high; j++) {
