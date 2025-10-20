@@ -112,13 +112,13 @@ public class Group6 {
 		quicksort(toSort, 0, toSort.length - 1, comp);
 	}
     
-	// Dual-pivot quicksort helpers (using two pivots -> three partitions)
+	// Dual-pivot quicksort helpers (using two pivots -> three pivots)
 	private static final int INSERTION_SORT_THRESHOLD = 16;
 
 	private static void quicksort(String[] arr, int low, int high, SortingCompetitionComparator comp) {
 		while (low < high) {
 			int len = high - low + 1;
-			// Use insertion sort for small partitions
+			// Use insertion sort for small pivots
 			if (len <= INSERTION_SORT_THRESHOLD) {
 				insertionSort(arr, low, high, comp);
 				return;
@@ -165,12 +165,12 @@ public class Group6 {
 			int p1 = lt - 1;
 			int p2 = gt + 1;
 
-			// Recurse on smaller partitions first to limit stack depth
+			// Recurse on smaller pivots first to limit stack depth
 			int leftSize = p1 - 1 - low;
 			int middleSize = p2 - 1 - (p1 + 1) + 1; // p2 - p1 - 1
 			int rightSize = high - (p2 + 1) + 1;
 
-			// sort three partitions: [low, p1-1], [p1+1, p2-1], [p2+1, high]
+			// sort three pivots: [low, p1-1], [p1+1, p2-1], [p2+1, high]
 			// Recurse on smallest, loop on the largest to reduce recursion depth
 			if (leftSize <= middleSize && leftSize <= rightSize) {
 				quicksort(arr, low, p1 - 1, comp);
